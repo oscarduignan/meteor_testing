@@ -7,7 +7,7 @@ after_success:
 - make build
 env:
   global:
-    - ARTIFACTS_S=eu-west-1
+    - ARTIFACTS_S3_REGION=eu-west-1
     - ARTIFACTS_TARGET_PATHS="builds/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER:builds/$TRAVIS_REPO_SLUG/$TRAVIS_COMMIT"
 addons:
   artifacts:
