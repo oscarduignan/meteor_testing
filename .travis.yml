@@ -4,13 +4,13 @@ node_js:
 before_install:
 - curl https://install.meteor.com | /bin/sh
 before_script:
-- "gem install travis-artifacts"
+- gem install travis-artifacts
 after_success:
-- "meteor bundle $TRAVIS_COMMIT.tgz"
-- "travis-artifacts upload --path $TRAVIS_COMMIT.tgz --target-path builds/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID"
+- make build
+- travis-artifacts upload --path build/helloworld.tgz --target-path builds
 env:
   global:
   - ARTIFACTS_AWS_REGION=eu-west-1
   - ARTIFACTS_S3_BUCKET=foftravel_builds
-  - secure: kpEY4ZbLBqaccOWscqK6MLbCyGRGKBE4u8YpCFabGC4JZ7Kg92VSXFQ0vO4J4eodEXwSC1DPVGWK3ieg/R3VGX7D6Z/6IWiREVd7ZQ5z+db1GZGKJyzHJy9X8QUuOtZiO9BKzo+S15BaHdUXLl/6CQrbh09StcMAbKajckzi9rk=
-  - secure: Cxmc2vDFW6SEZeq1eFXE8/6ggEHd5kJJmhxce08jmocvsIKD1/LHsA6XbC3hsr3H3tHH1U3zVFFMPPcphMnZFaaNOS5Eml6UEXG9fPF0NJYtNZ97zfTFxLgKufFH5ogNWmIPX05w8obeXAvh/i0CP/kXCiG+I9EQEjcHKsS7gb8=
+  - secure: NJ4qeJXe5bKgRs+FrhoPf7bmiu/y3dSarX0HDyaI14dYnzrP7dMJ+5b2VmfjPPuvJ/dzvKC+oTmkyinjyxVujlRzjeXOkcBUmo9YB22hdJeIemQ5GbZIEmpRew0C6UFPJZ5gF2FX7YMZk6tVhBKRLhNcuh1ueuTRY26jo0KWJAc=
+  - secure: kQUlCf4/fGi1o4+si2vqpXZVvijFpQZ0Y360iRxGpgXYZCyc7cWlex21tmbFkNJOU6bxb+uaNrQUKutuMt6LD+8vX16esoyNAhf/wCY02vHIdluyNUjZ0BamuH8I0fvazTmVf9hcsHQpV/3V4/rXcsSPArMa/iLXxfEkop6Mokg=
