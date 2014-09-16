@@ -7,7 +7,7 @@ before_script:
 - gem install travis-artifacts
 after_success:
 - make build
-- travis-artifacts upload --path build/helloworld.tgz --target-path builds
+- travis-artifacts upload --path build/meteor_testing.tgz --target-path builds
 env:
   global:
   - ARTIFACTS_AWS_REGION=eu-west-1
